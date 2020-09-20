@@ -12,13 +12,30 @@
     <title>share-otsu-clock</title>
     <meta content="★説明を入れる" name="description" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    <!-- IE対応するなら <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js"></script> -->
-    <!-- IE対応するなら(Promise) <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 </head>
 
 <body>
-    <div class="clock-frame-outline"> </div>
+    <div id="clock">
+        <div class="clock-frame-outline">
+            <svg viewBox="0 0 53.05164769733333 53.05164769733333" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <title>Pie Clock</title>
+                    <!-- 半径15.9154943092で円周100px。 -->
+                    <circle id="circle-sec" r="15.9154943092" cy="26.52582384866667"
+                        cx="26.52582384866667" stroke-width="20%" stroke="#6fdb6f" fill="none" :stroke-dasharray="sDashArray"/>
+                    <!-- 半径10.61032953945969で円周約66.6...px。 -->
+                    <circle id="circle-min" r="10.6103295395" cy="26.52582384866667"
+                        cx="26.52582384866667" stroke-width="20%" stroke="red" fill="none" :stroke-dasharray="mDashArray"/>
+                    <!-- 半径5.305164769729845で円周約33.3...px。 -->
+                    <circle id="circle-hour" r="5.3051647697" cy="26.52582384866667"
+                        cx="26.52582384866667" stroke-width="20%" stroke="green" fill="none" :stroke-dasharray="hDashArray"/>
+                    <circle id="circle-ampm" r="5.3051647697" cy="26.52582384866667"
+                        cx="26.52582384866667" stroke-width="0" />
+                </g>
+            </svg>
+        </div>
+    </div>
     <script src="js/index.js"></script>
 </body>
 
