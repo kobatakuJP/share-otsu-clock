@@ -21,20 +21,38 @@
             <svg viewBox="0 0 53.05164769733333 53.05164769733333" xmlns="http://www.w3.org/2000/svg">
                 <g>
                     <title>Pie Clock</title>
-                    <!-- 半径15.9154943092で円周100px。 -->
-                    <circle id="circle-sec" r="22" cy="26.52582384866667"
-                        cx="26.52582384866667" stroke-width="1" stroke="black" fill="white"/>
-                    <!-- 半径15.9154943092で円周100px。 -->
-                    <circle id="circle-sec" r="15.9154943092" cy="26.52582384866667"
-                        cx="26.52582384866667" stroke-width="20%" stroke="#6fdb6f" fill="none" :stroke-dasharray="sDashArray"/>
-                    <!-- 半径10.61032953945969で円周約66.6...px。 -->
-                    <circle id="circle-min" r="10.6103295395" cy="26.52582384866667"
-                        cx="26.52582384866667" stroke-width="20%" stroke="red" fill="none" :stroke-dasharray="mDashArray"/>
-                    <!-- 半径5.305164769729845で円周約33.3...px。 -->
-                    <circle id="circle-hour" r="5.3051647697" cy="26.52582384866667"
-                        cx="26.52582384866667" stroke-width="20%" stroke="green" fill="none" :stroke-dasharray="hDashArray"/>
-                    <circle id="circle-ampm" r="5.3051647697" cy="26.52582384866667"
-                        cx="26.52582384866667" stroke-width="0" />
+                    <!-- 時計の枠、半径15.9154943092で円周100px。 -->
+                    <circle id="circle-sec" r="22" cy="26.52582384866667" cx="26.52582384866667" stroke-width="1"
+                        stroke="black" fill="white" />
+                    <!-- 秒針、半径15.9154943092で円周100px。 -->
+                    <circle id="circle-sec" r="15.9154943092" cy="26.52582384866667" cx="26.52582384866667"
+                        stroke-width="20%" stroke="#6fdb6f" fill="none" :stroke-dasharray="sDashArray" />
+                    <!-- 長針、半径10.61032953945969で円周約66.6...px。 -->
+                    <circle id="circle-min" r="10.6103295395" cy="26.52582384866667" cx="26.52582384866667"
+                        stroke-width="20%" stroke="red" fill="none" :stroke-dasharray="mDashArray" />
+                    <!-- 短針、半径5.305164769729845で円周約33.3...px。 -->
+                    <circle id="circle-hour" r="5.3051647697" cy="26.52582384866667" cx="26.52582384866667"
+                        stroke-width="20%" stroke="green" fill="none" :stroke-dasharray="hDashArray" />
+                    <circle id="circle-ampm" r="5.3051647697" cy="26.52582384866667" cx="26.52582384866667"
+                        stroke-width="0" />
+                    <!-- 時のボックス -->
+                    <rect x="24.5258238487" y="32.4835710032" width="4" height="4" fill="white" stroke="black"
+                        stroke-width="0.2" />
+                    <!-- 時のテキスト（数値は微調整による） -->
+                    <text x="28.3258238487" y="31.4835710032" font-size="3" font-family="Courier" text-anchor="end"
+                        fill="gray" transform="rotate(90 24.5258238487,32.4835710032)">{{hour}}</text>
+                    <!-- 分のボックス -->
+                    <rect x="24.5258238487" y="37.7887357729" width="4" height="4" fill="white" stroke="black"
+                        stroke-width="0.2" />
+                    <!-- 分のテキスト（数値は微調整による） -->
+                    <text x="33.6258238487" y="31.4835710032" font-size="3" font-family="Courier" text-anchor="end"
+                        fill="gray" transform="rotate(90 24.5258238487,32.4835710032)">{{min}}</text>
+                    <!-- 秒のボックス -->
+                    <rect x="24.5258238487" y="43.0939005426" width="4" height="4" fill="white" stroke="black"
+                        stroke-width="0.2" />
+                    <!-- 秒のテキスト（数値は微調整による） -->
+                    <text x="38.9258238487" y="31.4835710032" font-size="3" font-family="Courier" text-anchor="end"
+                        fill="gray" transform="rotate(90 24.5258238487,32.4835710032)">{{sec}}</text>
                 </g>
             </svg>
         </div>
