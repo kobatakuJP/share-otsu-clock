@@ -7,9 +7,13 @@
   left: 0;
   right: 0;
   margin: auto;
-  background-color: yellow;
+  background-color: #ddbb99;
 }
 
 svg {
   transform: rotate(-90deg);
+}
+
+.clock-time-text {
+  font-weight: bold;
 }
