@@ -5,6 +5,7 @@ const vm = new Vue({
   },
   computed: {
     hour: (vm) => new Date(vm.date).getHours(),
+    hour12: (vm) => vm.hour % 12,
     min: (vm) => new Date(vm.date).getMinutes(),
     sec: (vm) => new Date(vm.date).getSeconds(),
     ms: (vm) => new Date(vm.date).getMilliseconds(),
