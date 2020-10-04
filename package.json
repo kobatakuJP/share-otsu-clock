@@ -1,0 +1,26 @@
+{
+  "name": "share-otsu-clock",
+  "version": "1.0.0",
+  "description": "GitHub Pageで動いてます。 https://kobatakujp.github.io/share-otsu-clock/",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "netlify-lambda serve functions",
+    "build": "netlify-lambda build functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kobatakuJP/share-otsu-clock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kobatakuJP/share-otsu-clock/issues"
+  },
+  "homepage": "https://github.com/kobatakuJP/share-otsu-clock#readme",
+  "dependencies": {
+    "netlify-lambda": "^2.0.1"
+  }
+}
