@@ -11,7 +11,6 @@ exports.handler = async (event, context) => {
     return fetch(url, { headers: { Accept: "application/json" } })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         return {
           statusCode: 200,
           headers: {
