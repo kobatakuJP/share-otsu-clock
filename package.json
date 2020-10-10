@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/kobatakuJP/share-otsu-clock#readme",
   "dependencies": {
+    "encoding": "^0.1.13",
     "netlify-lambda": "^2.0.1",
     "node-fetch": "^2.6.1"
   }
