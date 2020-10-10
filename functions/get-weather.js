@@ -11,9 +11,12 @@ exports.handler = async (event, context) => {
     const url = `${API_ENDPOINT}?lat=${lat}&lon=${lon}&appid=${OSM_API_KEY}`;
     return fetch(url, { headers: { Accept: "application/json" } })
       .then((response) => response.json())
-      .then((data) => ({
-        statusCode: 200,
-      }))
+      .then((data) => {
+        console.log(data);
+        return {
+          statusCode: 200,
+        };
+      })
       .catch((error) => ({ statusCode: 422, body: String(error) }));
   }
 };
