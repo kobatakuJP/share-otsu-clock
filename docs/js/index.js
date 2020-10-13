@@ -3,12 +3,14 @@ const AROUNDNOON_TIME = [10, 16];
 const EVENING_TIME = [16, 19];
 // NIGHT_TIMEはそのほかとする。（24時をはさむのでめんどい）
 const WEATHER_ICON_EP = "http://openweathermap.org/img/w/";
+const WEATHER_INTERVAL_MS = 30 * 60 * 1000;
 const clockVM = new Vue({
   el: "#clock",
   data: {
     date: Date.now(),
     // hue: 0,
     iconid: "",
+    lastIconUpdate: 0
   },
   computed: {
     hour: (vm) => new Date(vm.date).getHours(),
@@ -48,6 +50,14 @@ const clockVM = new Vue({
     sHSL: (vm) => `hsl(${vm.hueOfTime}, 100%, 40%)`,
     iconHref: (vm) => (vm.iconid ? `${WEATHER_ICON_EP}${vm.iconid}.png` : ""),
   },
+  methods: {
+    updateWeatherIconIfNeed: function () {
+      if (this.date - this.lastIconUpdate > WEATHER_INTERVAL_MS) {
+        this.lastIconUpdate = this.date;
+        updateWeatherIcon();
+      }
+    },
+  },
 });
 
 /**
@@ -60,6 +70,7 @@ function createDashArray(p, correction) {
 
 function tick() {
   clockVM.date = Date.now();
+  clockVM.updateWeatherIconIfNeed();
   requestAnimationFrame(tick);
 }
 
@@ -73,7 +84,7 @@ function updateWeatherIcon() {
   navigator.geolocation.getCurrentPosition(async (pos) => {
     const w = await getWeather(pos.coords.latitude, pos.coords.longitude);
     if (w && w.weather && w.weather[0] && w.weather[0].icon) {
-      clockVM.iconid = w.weather[0].icon
+      clockVM.iconid = w.weather[0].icon;
     }
   });
 }
